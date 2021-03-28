@@ -249,11 +249,33 @@ Take a look at the output in the browser. We now have three different `Person` c
 
 ## Code Along: Adding Props to the Recipe App
 
-In our `App` component in `./src/App.js`, let's remove our `Person` components and bring back the `Header`, `HomePage`, and `MainPage` components. You can also comment out the `Person` components if you want to save them for later.
+In our `App` component in `./src/App.js`, let's remove our `Person` components and bring back the `Header`, and `MainPage` components. We'll leave the `HomePage` component commented out for now so we are just viewing the main page. You can also comment out the `Person` components if you want to save them for later.
 
 ```js
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import MainPage from './pages/MainPage';
+import './App.css';
 
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      {/* <HomePage /> */}
+      <MainPage />
+    </div>
+  );
+}
+
+export default App;
 ```
+In the browser, we should now see our main page with our list of categories on the side and a list of recipes towards the bottom.
+
+The majority of our work for the rest of the lesson will be in the `MainPage` component. Our goal will be to define our data for cateogies and recipes at the top level in our `MainPage` component and pass that data to the child components to be rendered.
+
+### Defining the Category and Recipe Data
+
+
 
 <br>
 <br>
