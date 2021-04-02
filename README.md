@@ -293,6 +293,7 @@ const categoryData = [
     _id: '0',
     categoryName: 'Breakfast',
     categoryDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, eligendi. Repellendus voluptates vel, consequatur sequi dolorem repellat blanditiis aut optio impedit quidem ut officiis laudantium vitae dicta aspernatur ullam quis?',
+    categoryImg: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666',
     recipes: [
       {
         _id: '0',
@@ -315,6 +316,7 @@ const categoryData = [
     _id: '1',
     categoryName: 'Soups',
     categoryDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, eligendi. Repellendus voluptates vel, consequatur sequi dolorem repellat blanditiis aut optio impedit quidem ut officiis laudantium vitae dicta aspernatur ullam quis?',
+    categoryImg: 'https://images.unsplash.com/photo-1588566565463-180a5b2090d2',
     recipes: [
       {
         _id: '0',
@@ -332,6 +334,7 @@ const categoryData = [
     _id: '2',
     categoryName: 'Pasta Dishes',
     categoryDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis, eligendi. Repellendus voluptates vel, consequatur sequi dolorem repellat blanditiis aut optio impedit quidem ut officiis laudantium vitae dicta aspernatur ullam quis?',
+    categoryImg: 'https://images.unsplash.com/photo-1603729362753-f8162ac6c3df',
     recipes: [
       {
         _id: '0',
