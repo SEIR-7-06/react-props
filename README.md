@@ -349,7 +349,7 @@ export default categoryData;
   ```
 </details>
 
-Take a moment to familiarize yourself with the data here. We have an array of category objects. Each object contains the name, and description for that category, and an array of recipes for that category. Our job is to take this data and to feed it as **props** to our components.
+Take a moment to familiarize yourself with the data here. We have an array of category objects. Each object contains the name, and description for that category, and an array of recipes for that category. Our job is to take this data and to feed it as **props** to our components and have that information display on the page, just like we were able to do with our `Person` component from before.
 
 Eventually this data will be coming from a database and we'll make a network request to get this data from our API. For now we'll work with this as a placeholder. Note that each category object is already "populated" with the recipe data.
 
