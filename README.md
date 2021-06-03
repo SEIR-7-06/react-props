@@ -509,7 +509,7 @@ export default Sidebar;
 
 We are mapping through our array of category data (`props.categories`) and creating an array of `<li>`s. This array of `<li>`s gets stored in a variable we call `categoriesList`. We can then insert this `categoriesList` variable into the `<ul>` of our **JSX**.
 
-Take a look at the browser. We should see our list of categories in the sidebar just as before.
+Take a look at the browser. We should see our list of categories in the sidebar just as before! Now here comes the fun part. Go ahead and change one of the category names in `categoryData.js` and watch the content change on the page! Instead of hard coding the content we are dynamically populating from `categoryData.js`.
 
 If you open up the developer console you'll also see this warning.
 
