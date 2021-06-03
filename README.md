@@ -625,7 +625,7 @@ Give it a try!
 
   export default RecipesList;
   ```
-</detials>
+</details>
 
 Using the **map method** we loop through our `recipes` array and create an array of `Recipe` components. That array of `Recipe` components gets stored in a variable we called `recipesComps` (although we could have called it anything. It's just a variable) and rendered `recipesComps` in the **JSX** of our main return statement of the `RecipesList` component.
 
