@@ -390,7 +390,7 @@ Here, `categoryData` is just a variable that holds our array of data. We are fee
 
 ### Creating a List of Components
 
-Let's make our way back to `Sidebar.js`. In the `Sidebar` component, log out **props**.
+Let's make our way back to `Sidebar.js`. In the `Sidebar` component. We'll first pass props as a parameter to the `Sidebar` component and then log out **props**.
 
 ```js
 function Sidebar(props) {
