@@ -817,22 +817,8 @@ Eventually we'll be able to automatically change this index value when a user cl
 
 For now, try to get as solid as you can with **props** in React. Try going through this lesson again and focusing on points that you feel you still need work on. You could even try bringing back the `Person` component or `Dog` component to play with props in an isolated example. **Props** are an esential part of React and we will be building on these concepts in the next lesson.
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
 ## Points to Remember
-
+- Props are how we pass information from a parent component to a child component.
+- Props within a component will always be a JavaScript object.
 - Props cannot be changed or reassigned; they are immutable.
-- We use React state to handle data that changes over time.
+- Passing props to a component is exactly like passing arguments to a function.
