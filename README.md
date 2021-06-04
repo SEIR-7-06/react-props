@@ -597,9 +597,9 @@ function RecipesList(props) {
 
 We can comment out or delete the `console.log` for now.
 
-Just as we looped through the array of category data for the `Sidebar` component we want to loop through our array of recipes now coming to us from `props.recipes`. For each recipe in `props.recipe` we want to render a `Recipe` component.
+Just as we looped through the array of category data for the `Sidebar` component we want to loop through our array of recipes now coming to us from `props.recipes`. Using the JavaScript `.map` method let's loop through `props.recipes` and create an array of `Recipe` components.
 
-Give it a try!
+Use `Sidebar.js` as a reference and give it a try!
 
 <details>
   <summary>Solution:</summary>
@@ -631,7 +631,7 @@ Using the **map method** we loop through our `recipes` array and create an array
 
 If we add another recipe object in the recipes array for the first category, we'll see an extra `Recipe` component rendered in the browser.
 
-Awesome!
+Give it a try!
 
 ### Passing Recipe Data to Recipe Component
 
@@ -704,7 +704,7 @@ function Recipe(props) {
 
   export default Recipe;
   ```
-</detials>
+</details>
 
 Take a look at the browser and now you should see your different recipes being displayed.
 
