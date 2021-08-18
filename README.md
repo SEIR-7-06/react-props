@@ -10,7 +10,71 @@
 
 ## Introducing Props
 
-**Props allow us to pass information from a parent component to a child component.** They allows us to create different versions of the component every time we render it out.
+**Props allows us to create different versions of a component every time we render it.**
+
+Take for example these characters from a popular online game. We could have a character component that could be used to render many characters. Each time we render a character we give it a different color.
+
+![among us characters](./images/among-us-chars-4.jpg)
+
+<br>
+
+---
+
+The code to render the characters might look something like this.
+
+```html
+<div>
+  <Character color="red" />
+  <Character color="blue" />
+  <Character color="green" />
+  <Character color="orange" />
+</div>
+```
+
+Each time we render a Character we pass it some information on _how_ to render that character.
+
+We call this information **props**. In this case we are passing a color **prop** to the `Character` component.
+
+**props allow us to pass information to a component when it is rendered.**
+
+<br>
+
+---
+
+### Another Example
+
+Imagine we had a set of profile cards for a social media website.
+
+![profile-card](./images/profile-cards-4.png)
+
+Each card would follow the same basic structure, but each would have a different color, a different image, and a different name.
+
+In this case, we would have a `ProfileCard` component that could be used to render many profile cards.
+
+The code would look something like this.
+
+```html
+<div>
+  <ProfileCard
+    color="limegreen"
+    image="./images/sam-rob.jpg"
+    fullName="Samual Robinson"
+  />
+
+  <ProfileCard
+    color="light-blue"
+    image="./images/ron-lee.jpg"
+    fullName="Ron Lee"
+  />
+
+  ...
+
+</div>
+```
+
+Upon rendering each profile card, we would pass it three pieces of information, or three **props**: the color, the image, and the name we want it to render with.
+
+Also note that in this case the **props** are written out each on their own line. This makes the code a little easier to read when we have many **props** to pass to a component.
 
 ---
 
@@ -35,7 +99,7 @@ console.log(getGreeting('Hubert'));
 console.log(getGreeting('Zoey'));
 ```
 
-A function takes in inputs (arguments or parameters) and spits out an output (the return value). This is the essential concept that we will be building on.
+A function takes in inputs (arguments or parameters) and returns an output (the return value). This is the concept that we will be building on.
 
 We can pass more inputs (parameters) to our function if we want.
 
@@ -65,7 +129,13 @@ console.log(getGreeting(name, day));
 
 We are still able to get our greeting even when the inputs come from variables.
 
-Take some time to create your own functions that takes their own inputs (parameters). For example, you could create a function `createOrder` that takes as parameters information about a person's order at a restaurant and returns a string describing their order. You could create a function that takes in information about a person and returns a string describing that person. You should be very comfortable with these concepts before moving on.
+Take some time to create your own functions that takes their own inputs (parameters).
+
+You could create a function `createOrder` that takes as parameters information about a person's order at a restaurant and returns a string describing their order.
+
+You could create a function that takes in information about a person and returns a string describing that person. Be sure you are comfortable with these concepts before moving on.
+
+...
 
 Now here's the kicker...
 
@@ -77,9 +147,70 @@ React components are essentially functions that take in inputs (**props**) and r
 
 To explore the concept of **React props** we'll return to the React App we set up for the Intro to React Lesson. In there we had created a `Person` component and a `Dog` component.
 
-We'll start with the `Person` component that we created in `./src/components/Person.js`. We'll take a look at how we can set up our `Person` component to create a different person each time.
+<br>
 
-In the `App.js` file import the `Person` component at the top of the file. Then render the `Person` component inside of the `App` component.
+<details>
+  <summary>If you haven't created a Person or Dog component yet, follow these steps.</summary>
+
+  ---
+
+  In your terminal, navigate into your React App, and then create a `components` directory inside of the `src` directory.
+  ```bash
+  mkdir ./src/components
+  ```
+
+  ### Create A Person Component
+
+  Create a file called `Person.js` inside of the `components` directory.
+  ```bash
+  touch ./src/components/Person.js
+  ```
+
+  Inside of `Person.js` create your `Person` component. Export your `Person` component.
+  ```js
+  function Person() {
+    return (
+      <div>
+        <h2>Name: Flynn</h2>
+        <p>Favorite Color: Blue</p>
+      </div>
+    );
+  }
+
+  export default Person;
+  ```
+
+  ---
+
+  ### Create a Dog Component
+
+  Create a file called `Dog.js` inside of the `components` directory.
+  ```bash
+  touch ./src/components/Dog.js
+  ```
+
+  Inside of `Dog.js` create your `Dog` component. Export your `Dog` component.
+  ```js
+  function Dog() {
+    return (
+      <div>
+        <h2>Name: Sparky</h2>
+        <p>Favorite Activity: Chasing the ball</p>
+      </div>
+    );
+  }
+
+  export default Dog;
+  ```
+
+  ---
+</details>
+
+<br>
+
+We'll start with the `Person` component that we created in `./src/components/Person.js`. By passing **props** to the `Person` component we can create a different person each time.
+
+In the `App.js` file import the `Person` component at the top of the file. Render the `Person` component inside of the `App` component.
 
 ```js
 import Person from './components/Person';
@@ -123,9 +254,9 @@ export default App;
 
 ## Receiving Props
 
-Inside of `Person.js`, where we define the `Person` component, we can now receive the **props** that were passed to it.
+Inside of `Person.js`, where we define the `Person` component, we can receive the **props** that were passed to it.
 
-We first set our component up to receive those **props** by passing a **props** parameter to the `Person` component like so.
+We first set our component up to receive **props** by passing it a **props** parameter in the function call.
 
 ```js
 function Person(props) {
@@ -142,7 +273,7 @@ export default Person;
 
 Notice the **props** parameter passed in the parentheses.
 
-To get a sense of what this **props** parameter is, at the top of our function before the return statement, let's log out **props**.
+To get a sense of what this **props** parameter is let's log it out. At the top of our function before the return statement, log out props **props**.
 
 ```js
 function Person(props) {
@@ -165,7 +296,9 @@ Save the file and take a look at your browser's console. What do you see?
 
 When we log out **props**, we see that it is an **object** with a `personName` property set to the name that we passed in.
 
-Go back to the `App.js` file and change the `personName` **prop** to something else. Pass in a different string instead. Then check the output from our `console.log` statement. Try passing in a number or a boolean. What do you see in the console?
+Go back to the `App.js` file and change the value for the `personName` **prop** to something else. Pass in a different person's name instead. Then check the output from our `console.log` statement.
+
+Try changing the name of the **prop** from `firstName` to something else. What do you see now being logged from your `console.log` statement?
 
 ---
 
@@ -173,6 +306,7 @@ Go back to the `App.js` file and change the `personName` **prop** to something e
 
 Let's try passing a second **prop** to the `Person` component. Pass in a `favColor` props and give it any value you want. It would look something like this.
 
+In App.js
 ```js
 import Person from './components/Person';
 import './App.css';
@@ -189,11 +323,60 @@ export default App;
 ```
 If you are still logging out **props** in your `Person`, take a look at what is being logged out in the browser's console. 
 
-We are logging out an **object**, this time with two properties. `props` inside the `Person` component is an **object** with a `personName` property and now a `favColor` property.
+We are logging out an **object**, this time with two properties. 
+In Person.js, `props` inside the `Person` function is is an **object** with a `personName` property and now a `favColor` property.
 
 ![two props](./images/two-props.png)
 
-We can pass any **prop** we want to the `Person` component and it will show up as a property in the props **object**. Try passing more props to the `Person` component and see what gets logged out.
+From the `App` Component, we can pass any **prop** we want to the `Person` component and it will show up as a property in the props **object**.
+
+### Activity:
+
+From the `App` component, try passing more props to the `Person` component and see what gets logged out.
+
+Try Passing
+- a hometown **prop**
+- a favorite food **prop**
+- an occupation **prop**
+
+<details>
+  <summary>Example:</summary>
+
+  ```js
+  function App() {
+    return (
+      <div className="App">
+        <Person
+          personName="Greta"
+          favColor="purple"
+          hometown="Chicago, IL"
+          favoriteFood="pizza" 
+          occupation="marine biologist"
+        />
+      </div>
+    );
+  }
+  ```
+
+  In this example, we've opted to put each prop on it's own line, to aid readability. If we had tried to fit all **props** together on the same line, the component would be rather long and cause our code to trail off the page or wrap.
+
+  ---
+
+  Note that we are still logging out **props** in the `Person` component.
+
+  ```js
+  function Person(props) {
+    console.log('props inside Person =>', props);
+
+    return (
+      <div>
+        <h2>Name: {props.personName}</h2>
+        <p>Favorite Color: {props.favColor}</p>
+      </div>
+    );
+  }
+  ```
+</details>
 
 ## Passing Different Data Types as Props
 
