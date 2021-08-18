@@ -230,7 +230,7 @@ export default App;
 Just as we can pass information to a function with arguments, we can pass information to a component with **props** when we call or render that component. We can pass a `personName` **prop** to the `Person` component using the following syntax.
 
 ```js
-<Person personName="Larry">
+<Person personName="Larry" />
 ```
 Here we are passing a `personName` prop to the `Person` component and setting its value to `"Larry"`.
 The name of the **prop** is provided, followed by an equals sign (`=`), followed by the value that we want to pass in for that **prop**.
@@ -300,6 +300,10 @@ Go back to the `App.js` file and change the value for the `personName` **prop** 
 
 Try changing the name of the **prop** from `firstName` to something else. What do you see now being logged from your `console.log` statement?
 
+Note that we are simply logging `props` inside of the `Person` component and within the **props** object we can see the props passed to the component.
+
+Take a moment to play around with this... 
+
 ---
 
 ### Passing Multiple Props
@@ -323,12 +327,11 @@ export default App;
 ```
 If you are still logging out **props** in your `Person`, take a look at what is being logged out in the browser's console. 
 
-We are logging out an **object**, this time with two properties. 
-In Person.js, `props` inside the `Person` function is is an **object** with a `personName` property and now a `favColor` property.
+Right now we are logging out **props** inside of the the `Person.js` component. We are logging out an **object**, this time with two properties, a `personName` property and now a `favColor` property. These properties are set to the values we passed in.
 
 ![two props](./images/two-props.png)
 
-From the `App` Component, we can pass any **prop** we want to the `Person` component and it will show up as a property in the props **object**.
+From the `App` Component, we can pass any **prop** we want to the `Person` component and it will show up as a property in the **props** **object**.
 
 ### Activity:
 
@@ -350,7 +353,7 @@ Try Passing
           personName="Greta"
           favColor="purple"
           hometown="Chicago, IL"
-          favoriteFood="pizza" 
+          favFood="pizza" 
           occupation="marine biologist"
         />
       </div>
@@ -359,6 +362,8 @@ Try Passing
   ```
 
   In this example, we've opted to put each prop on it's own line, to aid readability. If we had tried to fit all **props** together on the same line, the component would be rather long and cause our code to trail off the page or wrap.
+
+  Notice that we do not separate the props with commas. The syntax is similar to if we were defining attributes on an HTML element. We simply define the name of the prop, followed by an equal sign (`=`), followed by the value we wish to pass for that prop.
 
   ---
 
@@ -376,9 +381,14 @@ Try Passing
     );
   }
   ```
+
+  We should see all of those new props being logged to the console inside of our **props** object.
+
 </details>
 
 ## Passing Different Data Types as Props
+
+Alright, let's remove those extra props we added and bring it back to just a `personName` and a `favColor`.
 
 So far we've just been passing string values as props, such as `"Greta"` or `"purple"`. But we can also pass other data types as **props** as well. Let's try passing a number as a **prop** to our `Person` component.
 
@@ -391,7 +401,11 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Person personName="Greta" favColor="purple" favNum={5} />
+      <Person
+        personName="Greta"
+        favColor="purple"
+        favNum={5} 
+      />
     </div>
   );
 }
@@ -405,13 +419,7 @@ _Anytime we pass a **prop** that is not a string, we'll wrap the value in curly 
 
 Experiment with passing other data types as well. Try passing a boolean or null as a **prop** to the `Person` component.
 
-## Passing an Array as Props
-
-// TODO: write example for array as props
-
-## Passing an Object as Props
-
-// TODO: write example for objects as props
+Take some time to play around with this.
 
 ---
 
@@ -464,3 +472,197 @@ export default App;
 ```
 
 Take a look at the output in the browser. We now have three different `Person` components rendered to the page. Each one has a different output based on the **props** that we've passed to it when rendering that `Person` component in the `App` component.
+
+<br>
+
+---
+
+## More Practice Passing Props
+
+We'll get some more practice passing **props** to components, this time using the `Dog` component.
+
+Activity:
+- import your `Dog` component into your `App.js` file.
+- Render your `Dog` component inside of your `App` component.
+
+<details>
+  <summary>Solution:</summary>
+  In App.js
+
+  ```js
+  import Person from './components/Person';
+  import Dog from './components/Dog';
+  import './App.css';
+
+  function App() {
+    return (
+      <div className="App">
+        <Person personName="Greta" favColor="purple" />
+        <Person personName="Hubert" favColor="lime green" />
+        <Person personName="Roberta" favColor="orange" />
+
+        <Dog />
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+</details>
+
+<br>
+
+---
+
+Now we'll configure the `Dog` component to take in props just as we did with the `Person` component.
+
+Activity:
+- In `Dog.js` configure the `Dog` component to receive **props**
+- In the `Dog` component log out the **props** variable just as we did with the `Person` component.
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function Dog(props) {
+    console.log('props in Dog component ==>', props);
+
+    return (
+      <div>
+        <h2>Name: Sparky</h2>
+        <p>Favorite Activity: Chasing the Ball</p>
+      </div>
+    )
+  }
+
+  export default Dog;
+  ```
+</details>
+
+<br>
+
+---
+
+We'll now pass **props** to the `Dog` component.
+
+Activity:
+- In `App.js` pass two props to the `Dog` component:
+  - `dogName`
+  - `favActivity`
+  - And give them any values you want!
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function App() {
+    return (
+      <div className="App">
+        <Person personName="Greta" favColor="purple" />
+        <Person personName="Steve" favColor="lime green" />
+        <Person personName="Jill" favColor="orange" />
+
+        <Dog dogName="Milo" favActivity="Getting a belly rub" />
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+</details>
+
+Now we should see the **props** that we passed in being logged to the console!
+
+For the next step, we'll take the **props** being passed to `Dog` and get them to display on the page. To do that we will insert these **props** into our JSX.
+
+Activity:
+- Replace the hardcoded dog name with the `dogName` **prop** being passed in.
+- Replace the hardcoded activity with the `favActivity` **prop** being passed in.
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function Dog(props) {
+    console.log('props inside Dog ==>', props);
+
+    return (
+      <div>
+        <h2>Name: {props.dogName}</h2>
+        <p>Favorite Activity: {props.favActivity}</p>
+      </div>
+    )
+  }
+
+  export default Dog;
+  ```
+</details>
+
+If all went well, we should see the **props** we passed from our `App` component to our `Dog` component now displaying in the browser.
+
+<br>
+
+---
+
+## More Practice
+
+Activity:
+- Create another component, for example a `Cat` component or a `GoldFish` component just as we did the `Dog` and the `Person` component.
+- Pass **props** to your new component.
+- Receive those **props** in your new component
+- Insert those **props** into the JSX and see them displaying in the browser.
+
+## Passing an Array as Props
+
+You Guessed it! Just as we can pass strings, numbers, and booleans as **props** to our components, we can also pass arrays.
+
+In our App.js let's simplify by removing everything except a `Person` and a `Dog` copmponent.
+
+In App.js
+```js
+function App() {
+  return (
+    <div className="App">
+      <Person personName="Greta" favColor="purple" />
+
+      <Dog dogName="Milo" favActivity="Getting a belly rub" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+Now define an array of hobbies inside of the `App` component right above your return statement.
+
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function App() {
+    const hobbies = [
+      'surfing',
+      'coding',
+      'reading'
+    ];
+
+    return (
+      <div className="App">
+        <Person personName="Greta" favColor="purple" />
+
+        <Dog dogName="Milo" favActivity="Getting a belly rub" />
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+</details>
+
+
+
+
+## Passing an Object as Props
+
+// TODO: write example for objects as props
