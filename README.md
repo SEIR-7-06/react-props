@@ -273,7 +273,7 @@ export default Person;
 
 Notice the **props** parameter passed in the parentheses.
 
-To get a sense of what this **props** parameter is let's log it out. At the top of our function before the return statement, log out props **props**.
+To get a sense of what this **props** parameter is let's log it out. At the top of our function before the return statement, log out **props**.
 
 ```js
 function Person(props) {
