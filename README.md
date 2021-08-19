@@ -331,7 +331,7 @@ Right now we are logging out **props** inside of the the `Person.js` component. 
 
 ![two props](./images/two-props.png)
 
-From the `App` Component, we can pass any **prop** we want to the `Person` component and it will show up as a property in the **props** **object**.
+_From the `App` Component, we can pass any **prop** we want to the `Person` component and it will show up as a property in the **props** **object**._
 
 ### Activity:
 
@@ -341,6 +341,7 @@ Try Passing
 - a hometown **prop**
 - a favorite food **prop**
 - an occupation **prop**
+- anything you want!
 
 <details>
   <summary>Example:</summary>
@@ -444,7 +445,7 @@ function Person(props) {
 export default Person;
 ```
 
-In order to insert JavaScript into **JSX** we use curly braces, `{}`. Inside a pair of curly braces we can insert any JavaScript we want. In this case, we are just inserting two properties from our **props** object that is coming in as the **props** parameter to the function.
+In order to insert JavaScript into **JSX** we use curly braces, `{}`. Inside a pair of curly braces we can insert any JavaScript we want. In this case, we are just inserting two properties from our **props** object that is coming in as the parameter to `Person` function.
 
 Take a look at the browser. We are rendering the `Person` component to the page with the values we passed to the component as **props**.
 
@@ -452,7 +453,7 @@ Take a look at the browser. We are rendering the `Person` component to the page 
 
 ### Rendering Different Instances of a Component
 
-At this point we are set up to create many different people using our `Person` component. Let's render out a few more `Person` components passing different props each time.
+At this point we are set up to create many different people using our `Person` component. Let's render out a few more `Person` components passing in a `personName` prop and a `favColor` prop for each one. Pass in any values you want for those props.
 
 ```js
 import Person from './components/Person';
