@@ -753,4 +753,192 @@ Add a `<ul>` tag with three `<li>` tags in your **JSX** and see if you can rende
 
 ## Passing an Object as Props
 
-You guessed it! Just as we can pass strings, numbers, booleans, and arrays, as a **prop** to a component, we can also pass an **object**.
+You guessed it! Just as we can pass strings, numbers, booleans, and arrays, as a **prop** to a component, we can also pass an **object**. And we often do. Let's practice.
+
+For this example, we'll create a `GoldFish` component.
+
+We'll start by creating the file.
+```bash
+touch ./src/components/Goldfish.js
+```
+
+In Goldfish.js add the code for your new component. In the **JSX** we'll include the 
+
+In Goldfish.js
+```js
+function Goldfish(props) {
+  console.log('props inside Goldfish ==>', props);
+
+  return (
+    <div>
+      <h2>Name: Franklin</h2>
+      <p>Favorite Activity: swimming laps</p>
+    </div>
+  )
+}
+
+export default Goldfish;
+```
+
+In App.js remove the `Person` and the `Dog` component and render out the `Goldfish` component instead.
+
+In App.js
+```js
+import Goldfish from './components/Goldfish';
+
+function App() {
+  return (
+    <div className="App">
+      <Goldfish />
+    </div>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+---
+
+Often the information for a component will be stored in an object. In the `App` component, above the return statement, define an object called `goldfishInfo`. We'll store the `goldfishName` and the `favActivity` in that `goldfishInfo` object.
+
+```js
+import Goldfish from './components/Goldfish';
+
+function App() {
+
+  const goldfishInfo = {
+    goldfishName: 'Jude',
+    favActivity: 'lip-syncing to my music'
+  }
+
+  return (
+    <div className="App">
+      <Goldfish />
+    </div>
+  );
+}
+
+export default App;
+```
+
+<br>
+
+---
+
+We can now pass `goldfishInfo` as a **prop** to the `Goldfish` component.
+
+```js
+import Goldfish from './components/Goldfish';
+
+function App() {
+
+  const goldfishInfo = {
+    goldfishName: 'Jude',
+    favActivity: 'lip syncing to my music'
+  }
+
+  return (
+    <div className="App">
+      <Goldfish goldfishInfo={goldfishInfo} />
+    </div>
+  );
+}
+
+export default App;
+```
+
+In Goldfish.js if we are still logging out **props** we should see it being logged to the console.
+
+![props with an object](./images/props-w-obj.png)
+
+**props** is an object with a `goldfishInfo` property inside of it.
+
+Take a look at your code in App.js. `goldfishInfo` should itself be an object with a `goldfishName` property and a `favActivity` property.
+
+![props with an object 2](./images/props-w-obj2.png)
+
+<br>
+
+---
+
+In Goldfish.js, update the **JSX** of our component to display the `goldfishName` being passed as **props** instead of the hardcoded name.
+
+**Hint:** By logging out **props** we know that `goldfishName` is a property on the object `goldfishInfo`. And `goldfishInfo` is a property on **props**.
+
+**Another Hint:** We will need to use "dot notation" to access the `goldfishName`.
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function Goldfish(props) {
+    console.log('props inside Goldfish ==>', props);
+
+    return (
+      <div>
+        <h2>Name: {props.goldfishInfo.goldfishName}</h2>
+        <p>Favorite Activity: swimming laps</p>
+      </div>
+    )
+  }
+
+  export default Goldfish;
+  ```
+
+  By using "dot notation" we can drill down into the **props** object and access `goldfishName`.
+
+</details>
+
+<br>
+
+---
+
+Alright, now how would we display the `favActivity` prop being passed in?
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function Goldfish(props) {
+    console.log('props inside Goldfish ==>', props);
+
+    return (
+      <div>
+        <h2>Name: {props.goldfishInfo.goldfishName}</h2>
+        <p>Favorite Activity: {props.goldfishInfo.favActivity}</p>
+      </div>
+    )
+  }
+
+  export default Goldfish;
+  ```
+
+  By using "dot notation" we can drill down into the **props** object and access `favActivity`.
+
+</details>
+
+<br>
+
+---
+
+Take some time to practice passing objects as props to components.
+
+Activity
+- Create another component, perhaps a `HousePlant` component.
+- Render that component in your `App` component.
+- Create an object in App.js and pass the object as a prop to your new component.
+- See if you can access those props and get the data to render on the page.
+
+<br>
+
+---
+
+You made it! That concludes the lesson on **props**. Continue to get more practice passing **props** to components using arrays, objects, and other data types.
+
+Additional Resources:
+
+Also do take some time to explore the lesson on **props** found on React's documentation.
+
+[Props from the React Docs](https://reactjs.org/docs/components-and-props.html)
