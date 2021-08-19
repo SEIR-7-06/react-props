@@ -478,9 +478,15 @@ Take a look at the output in the browser. We now have three different `Person` c
 
 ---
 
+Take some time to look at the code you wrote for your `Person` component. See if you can recall everything you did to pass **props** to that component and get those **props** to render on the page.
+
+<br>
+
+---
+
 ## More Practice Passing Props
 
-We'll get some more practice passing **props** to components, this time using the `Dog` component.
+We'll get some more practice passing **props** to components, this time using the `Dog` component. For the next activities, use your code for the `Person` component as a reference. We'll be doing the same thing with the `Dog` component.
 
 Activity:
 - import your `Dog` component into your `App.js` file.
@@ -608,7 +614,7 @@ If all went well, we should see the **props** we passed from our `App` component
 ## More Practice
 
 Activity:
-- Create another component, for example a `Cat` component or a `GoldFish` component just as we did the `Dog` and the `Person` component.
+- Create another component, for example a `Cat` component, just as we did the `Dog` and the `Person` component.
 - Pass **props** to your new component.
 - Receive those **props** in your new component
 - Insert those **props** into the JSX and see them displaying in the browser.
