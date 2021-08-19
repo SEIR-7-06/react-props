@@ -612,6 +612,10 @@ Activity:
 - Receive those **props** in your new component
 - Insert those **props** into the JSX and see them displaying in the browser.
 
+<br>
+
+---
+
 ## Passing an Array as Props
 
 You Guessed it! Just as we can pass strings, numbers, and booleans as **props** to our components, we can also pass arrays.
@@ -633,6 +637,10 @@ function App() {
 export default App;
 ```
 
+<br>
+
+---
+
 Now define an array of hobbies inside of the `App` component right above your return statement.
 
 
@@ -641,7 +649,7 @@ Now define an array of hobbies inside of the `App` component right above your re
 
   ```js
   function App() {
-    const hobbies = [
+    const hobbiesArray = [
       'surfing',
       'coding',
       'reading'
@@ -660,9 +668,89 @@ Now define an array of hobbies inside of the `App` component right above your re
   ```
 </details>
 
+<br>
 
+---
 
+Now pass the array as a **prop** to your `Person` component.
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function App() {
+    const hobbiesArray = [
+      'surfing',
+      'coding',
+      'reading'
+    ];
+
+    return (
+      <div className="App">
+        <Person
+          personName="Greta"
+          favColor="purple"
+          hobbies={hobbiesArray}
+        />
+
+        <Dog dogName="Milo" favActivity="Getting a belly rub" />
+      </div>
+    );
+  }
+
+  export default App;
+  ```
+
+  Notice We don't use quotes to pass in the `hobbiesArray` **prop** like we do when passing in a string. This time we are passing a variable as a **prop**. When passing a variable we will use curly braces (`{}`) instead.
+</details>
+
+If we are still logging out **props** inside our `Person` component we should see our array of hobbies showing up as well.
+
+![props with an array](./images/props-w-array.png)
+
+We have hobbies array showing up as a **prop** to our `Person` component. Now we can work with our hobbies data inside the `Person` component.
+
+<br>
+
+---
+
+In Person.js, notice how we are able to access the `personName` **prop** and inject it into our **JSX** for the `Person` component. Notice how we are able to access the `favColor` **prop** and inject it into our **JSX** for the `Person` component.
+
+Add a `<ul>` tag with three `<li>` tags in your **JSX** and see if you can render out each of the hobbies into an `<li>` tag.
+
+**Hint:** Remember `hobbies` is coming in as a **prop** to the `Person` component and `hobbies` is an array of hobbies.
+
+<details>
+  <summary>Solution:</summary>
+
+  ```js
+  function Person(props) {
+    console.log('props inside Person ==>', props);
+
+    return (
+      <div>
+        <h2>Name: {props.personName}</h2>
+        <p>Favorite Color: {props.favColor}</p>
+
+        <ul>
+          <li>{props.hobbies[0]}</li>
+          <li>{props.hobbies[1]}</li>
+          <li>{props.hobbies[2]}</li>
+        </ul>
+      </div>
+    );
+  }
+
+  export default Person;
+  ```
+
+  Here we access `hobbies` just like we access our other two props. Since it is an array of hobbies, we can simply access those hobbies with square bracket notation (`[]`).
+</details>
+
+<br>
+
+---
 
 ## Passing an Object as Props
 
-// TODO: write example for objects as props
+You guessed it! Just as we can pass strings, numbers, booleans, and arrays, as a **prop** to a component, we can also pass an **object**.
