@@ -57,13 +57,13 @@ The code would look something like this.
 <div>
   <ProfileCard
     color="limegreen"
-    image="./images/sam-rob.jpg"
+    image="sam-rob.jpg"
     fullName="Samual Robinson"
   />
 
   <ProfileCard
     color="light-blue"
-    image="./images/ron-lee.jpg"
+    image="ron-lee.jpg"
     fullName="Ron Lee"
   />
 
